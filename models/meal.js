@@ -29,7 +29,7 @@ Meal.init(
       defaultValue: DataTypes.NOW,
     },
     calories: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     meal_type: {
