@@ -2,16 +2,32 @@
     {
       "name": "anthony",
       "email": "anthony@hotmail.com",
-      "password": "password12345"
+      "password": "password12345",
+      "weight": 156,
+      "date_created": "2018-01-01",
+      "goal_weight": 145,
+      "height": 66,
+      "age": 42,
+      "bmi": 19
     },
     {
       "name": "patricia",
       "email": "patricia@gmail.com",
-      "password": "password12345"
+      "password": "password12345",
+      "weight": 156,
+      "goal_weight": 145,
+      "height": 66,
+      "age": 42,
+      "bmi": 19
     },
     {
       "name": "nick",
       "email": "nick@aol.com",
-      "password": "password12345"
+      "password": "password12345",
+      "weight": 156,
+      "goal_weight": 145,
+      "height": 66,
+      "age": 42,
+      "bmi": 19
     }
   ]

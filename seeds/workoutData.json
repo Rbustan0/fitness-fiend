@@ -3,27 +3,26 @@
         "user_id": 1,
         "workout_name": "yoga",
         "workout_description": "vinyasa",
-        "date_created": "",
         "duration": 60,
         "workout_type": "stretching",
-        "carlories_burnt": 60
+        "calories_burnt": 60
     },
     {
         "user_id": 1,
         "workout_name": "lap swim",
         "workout_description": "lap swimming",
-        "date_created": "2/22/22",
+        "date_created": "2023-01-02",
         "duration": 60,
         "workout_type": "cardio",
-        "carlories_burnt": 120
+        "calories_burnt": 120
     },
     {
         "user_id": 1,
         "workout_name": "track run",
         "workout_description": "",
-        "date_created": "12/31/20",
+        "date_created": "2023-01-02",
         "duration": 60,
-        "workout_type": "",
-        "carlories_burnt": 150
+        "workout_type": "strength training",
+        "calories_burnt": 150
     }
 ]
