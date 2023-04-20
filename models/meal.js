@@ -1,10 +1,13 @@
 // TODO Change accordingly
+
+//id (primary), user_id (foreign key), meal_name, calories, meal_date, type 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const User = require('./user');
 
-class Project extends Model {}
+class Meal extends Model {}
 
-Project.init(
+Meal.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,20 +15,25 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    meal_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
-    date_created: {
+    meal_date: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
+    calories: {
+      type: DataTypes.INT,
+      allowNull: false,
+    },
+    meal_type: {
+      type: DataTypes.ENUM('breakfast', 'lunch', 'dinner', 'snack'),
       allowNull: false,
     },
     user_id: {
@@ -45,4 +53,4 @@ Project.init(
   }
 );
 
-module.exports = Project;
+module.exports = Meal;
