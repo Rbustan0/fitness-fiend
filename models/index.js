@@ -19,7 +19,7 @@ User.hasMany(Meal, {
   onDelete: 'CASCADE'
 });
 
-Workout.belongsTo(User, {
+Meal.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
