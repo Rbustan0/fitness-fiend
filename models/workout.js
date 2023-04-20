@@ -3,6 +3,7 @@
 //user_id, id (primary key), workout_name, workout_description, workout_type, duration, date_created, 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const User = require('./user');
 
 class Workout extends Model {}
 
