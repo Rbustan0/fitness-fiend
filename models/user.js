@@ -50,7 +50,7 @@ User.init(
     },
     
     height:{
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
 
@@ -74,10 +74,8 @@ User.init(
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
       }
-  }
-},
-  
-  {
+  },
+
     sequelize,
     timestamps: false,
     freezeTableName: true,
