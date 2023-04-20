@@ -1,9 +1,11 @@
 // TODO: Edit Accordingly
 
 const sequelize = require('../config/connection');
-const { User} = require('../models');
+const { User, Meal, Workout } = require('../models');
 
 const userData = require('./userData.json');
+const mealData = require('./mealData.json');
+const workoutData = require('./workoutData.json');
 
 
 const seedDatabase = async () => {
@@ -13,6 +15,14 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
+
+  const meals = await Meal.bulkCreate(mealData, {
+        returning: true,
+  });
+
+  // const workouts = await Workout.bulkCreate(workoutData, {
+  //   returning: true,
+  // });
 
   // for (const project of projectData) {
   //   await Project.create({
