@@ -1,32 +1,18 @@
 // TODO Change accordingly
+
+//user_id, id (primary key), workout_name, workout_description, workout_type, duration, date_created, 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Workout extends Model {}
 
-Project.init(
+Workout.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -35,14 +21,42 @@ Project.init(
         key: 'id',
       },
     },
+    workout_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    workout_description: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    duration: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    workout_type: {
+      type: DataTypes.Enum('cardio', 'strength training', 'conditional training', 'sport', 'calesthetics', 'stretching'),
+      allowNull: false
+    },
+
+    calories_burnt: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    }
+
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'workout',
   }
 );
 
-module.exports = Project;
+module.exports = Workout;
