@@ -50,7 +50,7 @@ User.init(
     },
     
     height:{
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
 

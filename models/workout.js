@@ -27,7 +27,7 @@ Workout.init(
       allowNull: false,
     },
     workout_description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     date_created: {
