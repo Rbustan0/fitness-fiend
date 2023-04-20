@@ -40,7 +40,7 @@ Workout.init(
       allowNull: false,
     },
     workout_type: {
-      type: DataTypes.Enum('cardio', 'strength training', 'conditional training', 'sport', 'calesthetics', 'stretching'),
+      type: DataTypes.ENUM('cardio', 'strength training', 'conditional training', 'sport', 'calesthetics', 'stretching'),
       allowNull: false
     },
 
