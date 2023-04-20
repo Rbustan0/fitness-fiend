@@ -1,10 +1,14 @@
 // TODO Change accordingly
+
+// User id, email, password (figure out how to hash), weight (foreign key), goal weight, height, age, bmi, meals (foreign key) 
+
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class User extends Model {}
 
-Project.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,37 +16,73 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      }
     },
-    description: {
+    password: {
       type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
+      }
     },
+    
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    user_id: {
+    
+    weight: {
       type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
+      allowNull: false
     },
+    
+    goal_weight: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    
+    height:{
+      type: Datatypes.INTEGER,
+      allowNull: false
+    },
+
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    
+    bmi:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   },
+  {
+    hooks:{
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+      beforeUpdate: async (updatedUserData) => {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
+      }
+  }
+},
+  
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'user',
   }
 );
 
-module.exports = Project;
+module.exports = User;
