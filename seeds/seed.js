@@ -1,3 +1,5 @@
+// TODO: Edit Accordingly
+
 const sequelize = require('../config/connection');
 const { User, Workout, Meal } = require('../models');
 
