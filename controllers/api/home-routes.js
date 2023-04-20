@@ -1,3 +1,4 @@
+// TODO: EDIT THIS FILE TO ADD YOUR ROUTES AND PROPER PLACEMENTS
 const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');

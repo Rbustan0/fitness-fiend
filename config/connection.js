@@ -1,3 +1,4 @@
+// ! DONT TOUCH THIS FILE
 const Sequelize = require('sequelize');
 require('dotenv').config();
 

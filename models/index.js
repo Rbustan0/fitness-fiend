@@ -1,3 +1,4 @@
+// TODO EXPLAIN OUR RELATIONSHIPS
 const User = require('./user');
 const Project = require('./Project');
 
