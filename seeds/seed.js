@@ -20,9 +20,9 @@ const seedDatabase = async () => {
         returning: true,
   });
 
-  // const workouts = await Workout.bulkCreate(workoutData, {
-  //   returning: true,
-  // });
+  const workouts = await Workout.bulkCreate(workoutData, {
+    returning: true,
+  });
 
   // for (const project of projectData) {
   //   await Project.create({
