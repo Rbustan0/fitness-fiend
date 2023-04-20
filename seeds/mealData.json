@@ -1,0 +1,26 @@
+[
+{
+    "meal_name": "Peanut butter & jelly",
+    "description": "",
+    "meal_date": "",
+    "calories": "100g",
+    "meal_type": "vegetarian",
+    "user_id": "1"
+},
+{
+    "meal_name": "Peanut butter & jelly",
+    "description": "",
+    "meal_date": "",
+    "calories": "100g",
+    "meal_type": "vegetarian",
+    "user_id": "2"
+},
+{
+    "meal_name": "Peanut butter & jelly",
+    "description": "",
+    "meal_date": "",
+    "calories": "100g",
+    "meal_type": "vegetarian",
+    "user_id": "3" 
+}
+]
