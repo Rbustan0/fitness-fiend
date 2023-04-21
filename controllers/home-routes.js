@@ -1,7 +1,10 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Meal, Workout } = require('../models');
 const withAuth = require('../utils/auth');
 
+
+
+// Get User route
 router.get('/', async (req, res) => {
   try {
     // Get all users
@@ -19,6 +22,27 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+//get meal route
+// const meal = oneMeal.get({plain: true})
+//res.render('mealsAll', meal)
+router.get('/meal/:id', async (req, res) => {
+  try {
+      const id = parseInt(req.params.id);
+      const oneMeal = await Meal.findByPk(id);
+      if (oneMeal) {
+        const meal = oneMeal.get({plain: true})
+          // res.json(oneMeal);
+          res.render('mealUpdate', meal)
+      } else {
+          res.status(404).json({ error: 'Meal not found' });
+      }
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Failed to get meal' });
+  }
+});
+
+// Get workout route
 
 // does not include /api
 // all workout, user, and meal routes include /api/
