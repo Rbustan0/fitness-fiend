@@ -1,5 +1,9 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Meal, Workout } = require('../../models');
+
+
+
+// ! Login Shiz
 
 router.post('/', async (req, res) => {
   try {
@@ -57,5 +61,93 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+
+// ! User Shiz
+
+
+// GET USER ID:
+router.get('/:id', async (req, res) => {
+  try{
+    const userData = await User.findByPk(req.params.id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Meal }, { model: Workout }]
+    });
+    res.status(200).json(userData);
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+// Update information for a specific user.
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedUserData = await User.update(req.body, {
+      where: { id: req.params.id },
+    });
+    res.status(200).json(updatedUserData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+// Retrieve all meals for a specific user. Could have thrown this in the meal routes but seems to work with a User route as a catch all.
+router.get('/:id/meals', async (req, res) => {
+  try {
+    const mealData = await Meal.findAll({
+      where: { user_id: req.params.id },
+    });
+    res.status(200).json(mealData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+// Create a new meal for a specific user.
+router.post('/:id/meals', async (req, res) => {
+  try {
+    const newMeal = await Meal.create({
+      ...req.body,
+      user_id: req.params.id,
+    });
+    res.status(200).json(newMeal);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+// Retrieve all workouts for a specific user.
+router.get('/:id/workouts', async (req, res) => {
+  try {
+    const workoutData = await Workout.findAll({
+      where: { user_id: req.params.id },
+    });
+    res.status(200).json(workoutData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Create a new workout for a specific user.
+router.post('/:id/workouts', async (req, res) => {
+  try {
+    const newWorkout = await Workout.create({
+      ...req.body,
+      user_id: req.params.id,
+    });
+    res.status(200).json(newWorkout);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+
 
 module.exports = router;
