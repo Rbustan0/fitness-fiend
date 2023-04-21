@@ -5,7 +5,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const User = require('../models');
 
-class Meal extends Model {}
+class Meal extends Model { }
 
 Meal.init(
   {
