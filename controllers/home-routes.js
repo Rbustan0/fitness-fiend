@@ -44,6 +44,23 @@ router.get('/meal/:id', async (req, res) => {
 
 // Get workout route
 
+router.get('/workout/:id', async (req, res) => {
+  try {
+      const id = parseInt(req.params.id);
+      const oneWorkout = await Workout.findByPk(id);
+      if (oneWorkout) {
+        const workout = oneWorkout.get({plain: true})
+          // res.json(oneMeal);
+          res.render('workoutUpdate', workout)
+      } else {
+          res.status(404).json({ error: 'Meal not found' });
+      }
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Failed to get workout bum!!' });
+  }
+});
+
 // does not include /api
 // all workout, user, and meal routes include /api/
 
