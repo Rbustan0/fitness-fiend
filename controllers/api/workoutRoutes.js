@@ -33,6 +33,10 @@ const { Workout, Meal } = require('../../models');
 
 
 
+// ! NOTE TO PATRICIA: COULD POSSIBLY REMOVE '/workout' FROM ROUTE NAME
+
+
+
 // GET /workouts/:id: Retrieve information for a specific workout.
 router.get('/workout/:id', async (req, res) => {
   try {
