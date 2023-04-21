@@ -1,25 +1,25 @@
 [
-    {
-        "meal_name": "Peanut butter & jelly",
-        "description": "",
-        "calories": 100,
-        "meal_type": "lunch",
-        "user_id": "1"
-    },
-    {
-        "meal_name": "Peanut butter & jelly",
-        "description": "",
-        "meal_date": "2023-02-20",
-        "calories": 100,
-        "meal_type": "lunch",
-        "user_id": "2"
-    },
 {
-    "meal_name": "Peanut butter & jelly",
-    "description": "Test",
-    "meal_date": "2023-02-20",
-    "calories": 100,
-    "meal_type": "lunch",
-    "user_id": "3" 
+"meal_name": "Peanut butter & jelly",
+"description": "",
+"calories": 100,
+"meal_type": "lunch",
+"user_id": "1"
+},
+{
+"meal_name": "Peanut butter & jelly",
+"description": "",
+"meal_date": "2023-02-20",
+"calories": 100,
+"meal_type": "lunch",
+"user_id": "2"
+},
+{
+"meal_name": "Peanut butter & jelly",
+"description": "Test",
+"meal_date": "2023-02-20",
+"calories": 100,
+"meal_type": "lunch",
+"user_id": "3" 
 }
 ]
