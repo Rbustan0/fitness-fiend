@@ -146,25 +146,36 @@ router.post('/meals/:id', async (req, res) => {
 //   }
 // });
 
-// Get all User workouts specific to the user
+// Get all User workouts specific to the user - 
+// router.get('/workout/:id', async (req, res) => {
+//   const id = parseInt (req.params.id)
+//   try {
+//       const allWorkouts = await Workout.findByPk(id, {where:[{ id: user_id }]}
+//        );
+//       res.json(allWorkouts);
+//   } catch (error) {
+//       console.error(error)
+//       res.status(500).json({ message: "Failed to fetch workouts." });
+//   }
+// });
+
 router.get('/workout/:id', async (req, res) => {
-  const id = parseInt (req.params.id)
   try {
-      const allWorkouts = await Workout.findByPk(id, {include:[{ model: Workout }]}
-       );
-      res.json(allWorkouts);
-  } catch (error) {
-      console.error(error)
-      res.status(500).json({ message: "Failed to fetch workouts." });
+    const workoutData = await Workout.findAll({
+      where: { user_id: req.params.id },
+    });
+    res.status(200).json(workoutData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
 
 
 
-
 // Create a new workout for a specific user.
-router.post('/:id/workout', async (req, res) => {
+// THIS WORKS!
+router.post('/workout/:id', async (req, res) => {
   try {
     const newWorkout = await Workout.create({
       ...req.body,
@@ -175,7 +186,6 @@ router.post('/:id/workout', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 
 
