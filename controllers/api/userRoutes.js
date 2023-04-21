@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const { User, Meal, Workout } = require('../../models');
+const { findByPk } = require('../../models/user');
 
 
 
 // ! Login Shiz
-
+// THIS WORKS
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -65,8 +66,19 @@ router.post('/logout', (req, res) => {
 
 // ! User Shiz
 
+// GET ALL USERS for testing purposes - THIS WORKS
+router.get('/', async (req, res) => {
+try {
+  const userData = await User.findAll();
+  res.json(userData);
+}
+catch (err) {
+  res.status(500).json(err);
+}
+});
 
-// GET USER ID:
+
+// GET USER ID: THIS WORKS
 router.get('/:id', async (req, res) => {
   try{
     const userData = await User.findByPk(req.params.id, {
@@ -81,7 +93,7 @@ router.get('/:id', async (req, res) => {
 });
 
 
-// Update information for a specific user.
+// Update information for a specific user. THIS WORKS
 router.put('/:id', async (req, res) => {
   try {
     const updatedUserData = await User.update(req.body, {
@@ -95,7 +107,8 @@ router.put('/:id', async (req, res) => {
 
 
 // Retrieve all meals for a specific user. Could have thrown this in the meal routes but seems to work with a User route as a catch all.
-router.get('/:id/meals', async (req, res) => {
+// THIS WORKS
+router.get('/meals/:id', async (req, res) => {
   try {
     const mealData = await Meal.findAll({
       where: { user_id: req.params.id },
@@ -107,8 +120,8 @@ router.get('/:id/meals', async (req, res) => {
 });
 
 
-// Create a new meal for a specific user.
-router.post('/:id/meals', async (req, res) => {
+// Create a new meal for a specific user. THIS WORKS
+router.post('/meals/:id', async (req, res) => {
   try {
     const newMeal = await Meal.create({
       ...req.body,
@@ -121,8 +134,32 @@ router.post('/:id/meals', async (req, res) => {
 });
 
 
-// Retrieve all workouts for a specific user.
-router.get('/:id/workouts', async (req, res) => {
+// // Retrieve all workouts for a specific user. this is also in the workout routes
+// router.get('/:id/workouts', async (req, res) => {
+//   try {
+//     const workoutData = await Workout.findAll({
+//       where: { user_id: req.params.id },
+//     });
+//     res.status(200).json(workoutData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+// Get all User workouts specific to the user - 
+// router.get('/workout/:id', async (req, res) => {
+//   const id = parseInt (req.params.id)
+//   try {
+//       const allWorkouts = await Workout.findByPk(id, {where:[{ id: user_id }]}
+//        );
+//       res.json(allWorkouts);
+//   } catch (error) {
+//       console.error(error)
+//       res.status(500).json({ message: "Failed to fetch workouts." });
+//   }
+// });
+
+router.get('/workout/:id', async (req, res) => {
   try {
     const workoutData = await Workout.findAll({
       where: { user_id: req.params.id },
@@ -133,8 +170,12 @@ router.get('/:id/workouts', async (req, res) => {
   }
 });
 
+
+
+
 // Create a new workout for a specific user.
-router.post('/:id/workouts', async (req, res) => {
+// THIS WORKS!
+router.post('/workout/:id', async (req, res) => {
   try {
     const newWorkout = await Workout.create({
       ...req.body,
@@ -145,7 +186,6 @@ router.post('/:id/workouts', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 
 

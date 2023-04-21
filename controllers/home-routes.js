@@ -20,6 +20,9 @@ router.get('/', async (req, res) => {
   }
 });
 
+// does not include /api
+// all workout, user, and meal routes include /api/
+
 router.get('/user/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id);

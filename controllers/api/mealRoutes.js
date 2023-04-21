@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
 });
 
 
-// ? added two routes incase CRUM
+// ? added two routes incase CRUD
 
 router.put('/:id', async (req, res) => {
 
