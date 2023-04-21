@@ -5,6 +5,9 @@ const { Meal} = require('../../models');
 
 // Get all meals
 // Get Route
+
+
+// Discuss with Anthony about moving this to the user route.
 router.get('/', async (req, res) => {
     try {
         const allMeals = await Meal.findAll();
@@ -14,6 +17,8 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: "Failed to fetch meals." });
     }
 });
+
+// GOOD
 router.get('/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id);
@@ -60,15 +65,44 @@ router.post('/', async (req, res) => {
 });
 
 
+// ? added two routes incase CRUM
 
-// Put Routes
+router.put('/:id', async (req, res) => {
+
+try{
+    const meal = await Meal.findByPk(req.params.id);
+    
+    if (!meal) {
+        res.status(404).json({ error: 'Meal not found' });
+        return;
+    }
+
+    const updatedMeal = await meal.update(req.body);
+    res.json(updatedMeal);
+}
+catch{
+    res.status(500).json({ error: "Failed to update meal" });
+}
 
 
-
-// Delete Routes
-
+});
 
 
+router.delete('/:id', async (req, res) => {
+    try{
+
+        const meal = await Meal.findByPk(req.params.id);
+        if (!meal) {
+            res.status(404).json({ error: 'Meal not found' });
+            return;
+        }
+        await meal.destroy();
+        res.json({ message: 'Meal deleted' });
+    }
+    catch{
+        res.status(500).json({ error: "Failed to delete meal" });
+    }
+})
 
 
 
