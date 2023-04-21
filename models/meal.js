@@ -3,7 +3,7 @@
 //id (primary), user_id (foreign key), meal_name, calories, meal_date, type 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const User = require('./user');
+const User = require('../models');
 
 class Meal extends Model {}
 
