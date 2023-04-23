@@ -10,6 +10,8 @@ const withAuth = require('../../utils/auth');
 
 // Roye: Included where and include statements to make sure that only the user can see and access its own route data.
 
+// Note that we might not even need this route due to whats in user data.
+
 router.get('/', withAuth, async (req, res) => {
     try {
         const allMeals = await Meal.findAll({
@@ -37,32 +39,28 @@ router.get('/', withAuth, async (req, res) => {
 // 		"user_id": 3
 // 	}
 
-// POST route for creating a new meal
-router.post('/', withAuth, async (req, res) => {
-    try {
-        const { meal_name, description, meal_date, calories, meal_type, user_id } = req.body; // Extracting the required fields from req.body
-        const newMeal = await Meal.create({
-            meal_name,
-            description,
-            meal_date,
-            calories,
-            meal_type,
-            user_id
-        });
-        res.json(newMeal);
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Failed to create new meal" });
-    }
-});
+// POST route for creating a new meal 
+// WE ALREADY HAVE THIS POST IN THE USERROUTE
 
 
-// ? added two routes incase CRUD
+// router.post('/', withAuth, async (req, res) => {
+//     try {
+//         const { meal_name, description, meal_date, calories, meal_type, user_id } = req.body; // Extracting the required fields from req.body
+//         const newMeal = await Meal.create({
+//             meal_name,
+//             description,
+//             meal_date,
+//             calories,
+//             meal_type,
+//             user_id
+//         });
+//         res.json(newMeal);
 
-
-
-// TODO: NEED to fix routes so that it only edits the users meal not the rest. 
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ error: "Failed to create new meal" });
+//     }
+// });
 
 router.put('/:id', withAuth, async (req, res) => {
 
@@ -90,23 +88,26 @@ catch{
 });
 
 
-router.delete('/:id', async (req, res) => {
-    try{
-
-        const meal = await Meal.findByPk(req.params.id);
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        const meal = await Meal.findOne({
+            where: { id: req.params.id, user_id: req.session.user_id },
+        });
         if (!meal) {
-            res.status(404).json({ error: 'Meal not found' });
+            res.status(404).json({ error: 'Meal not found.' });
             return;
         }
         await meal.destroy();
-        res.json({ message: 'Meal deleted' });
+        res.json({ message: 'Meal deleted.' });
 
-        // TODO Render some html message that indicates successful post
+        // TODO Render some html message that indicates successful change
+
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to delete meal.' });
     }
-    catch{
-        res.status(500).json({ error: "Failed to delete meal" });
-    }
-})
+});
 
 
 

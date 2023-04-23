@@ -109,7 +109,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
 // Retrieve all meals for a specific user. Could have thrown this in the meal routes but seems to work with a User route as a catch all.
 // THIS WORKS
-router.get('/meals/:id', withAuth, async (req, res) => {
+router.get('/meal/:id', withAuth, async (req, res) => {
   try {
     const mealData = await Meal.findAll({
       where: { user_id: req.params.id },
@@ -122,7 +122,7 @@ router.get('/meals/:id', withAuth, async (req, res) => {
 
 
 // Create a new meal for a specific user. THIS WORKS
-router.post('/meals/:id', withAuth, async (req, res) => {
+router.post('/meal/:id', withAuth, async (req, res) => {
   try {
     const newMeal = await Meal.create({
       ...req.body,
@@ -162,13 +162,21 @@ router.post('/meals/:id', withAuth, async (req, res) => {
 
 router.get('/workout/:id', async (req, res) => {
   try {
-    const workoutData = await Workout.findAll({
-      where: { user_id: req.params.id },
-    });
-    res.status(200).json(workoutData);
-  } catch (err) {
-    res.status(500).json(err);
+    const allWorkouts = await Workout.findAll({ where: { user_id: req.user.id } });
+    res.json(allWorkouts);
+
+    // TODO: render in handlebars
+
+
   }
+  catch (error) {
+
+    console.error(error)
+    res.status(500).json({ message: "Failed to fetch workouts." });
+  }
+
+  // TODO: render in handlebars
+
 });
 
 
