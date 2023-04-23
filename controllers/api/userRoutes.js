@@ -165,8 +165,8 @@ router.post('/meal/:id', withAuth, async (req, res) => {
 });
 
 // Gets all workouts pertaining to the user.
-// ! Works!
-router.get('/workout/:id', withAuth, async (req, res) => {
+// ! Works! withAuth,
+router.get('/workout/:id',  async (req, res) => {
   try {
     const allWorkouts = await Workout.findAll({ where: { user_id: req.params.id } });
     res.json(allWorkouts);

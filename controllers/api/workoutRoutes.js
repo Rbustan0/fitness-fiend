@@ -5,6 +5,7 @@ const withAuth = require('../../utils/auth');
 
 
 // PUT /workout/:id: Update information for a specific workout.
+// ! WORKS 
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const workout = await Workout.findOne({ where: { id: req.params.id, user_id: req.user.id } });
@@ -29,6 +30,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
 
 // DELETE /workout/:id: Delete a specific workout.
+//  
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const workout = await Workout.findOne({ where: { id: req.params.id, user_id: req.user.id } });
