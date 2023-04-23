@@ -1,38 +1,30 @@
-{{!-- TODO Finish --}}
-
 <div class="container">
-      <div class="flexItem">
-       
-
-        <div class="flex">
-          <div>  
-            <form class="form">
-              
-                <h1 class="title">Login</h1>
-              
-              <div class="group">      
-                <input id="email-login" class="form-input" type="text" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>Email</label>
-              </div>
-                
-              <div class="group">      
-                <input class="form-input" type="password" id="passwordInput" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label for="passwordInput">Password</label>
-              </div>
-              <div class="flex">
-                <button type="submit" class="submitBtn" value="Sign up">Login</button>
-              </div>
-            </form>
+  <div class="flexItem">
+    <div class="flex">
+      <div>  
+        <form class="form" id="login-form">
+          <h1 class="title">Login</h1>
+          <div class="group">      
+            <input id="email-login" class="form-input" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="email-login">Email</label>
           </div>
-        </div>
-
-    
-   
+          <div class="group">      
+            <input class="form-input" type="password" id="password-login" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="password-login">Password</label>
+          </div>
+          <div class="flex">
+            <button type="submit" id="login-btn" type="submit"class="login-button" value="Sign up">Login</button>
+          </div>
+        </form>
       </div>
+    </div>
+  </div>
+</div>
+
       
 
       <div class="flexItem flexItem2">
@@ -45,22 +37,22 @@
               <h1 class="title">Sign up</h1>
         
               <div class="inputContainer">
-                <input type="text" id="email-signup" class="input form-input" placeholder="a">
+                <input type="text" id="email-signup" class="input form-input" placeholder="a" required>
                 <label for="" class="label">Email</label>
               </div>
         
               <div class="inputContainer">
-                <input type="text" id="name-signup"class="input form-input" placeholder="a">
+                <input type="text" id="name-signup"class="input form-input" placeholder="a" required>
                 <label for="" class="label">Full Name</label>
               </div>
         
               <div class="inputContainer">
-                <input type="password" class="input form-input" id="password-signup" placeholder="a">
+                <input type="password" class="input form-input" id="password-signup" placeholder="a" required>
                 <label for="" class="label">Password</label>
               </div>
         
               <div class="inputContainer">
-                <input type="password" class="input" placeholder="a">
+                <input type="password" class="input" placeholder="a" required>
                 <label for="" class="label">Confirm Password</label>
               </div>
         
@@ -77,6 +69,7 @@
        
     
 </div>
+<script src="/js/login.js"></script>
 
 
 <!-- signup.handlebars -->
