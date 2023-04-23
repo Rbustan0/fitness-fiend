@@ -95,6 +95,7 @@ router.get('/user/:id', withAuth, async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
+// ! Tested and presents Null response. Should work due to it being mostly boilerplate. NOTE: Need to check if user is able to create profiles.
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -102,6 +103,7 @@ router.get('/profile', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
     });
 
+    // res.status(200).json(userData);
     // Serialize the user data so the template can read it
     const user = userData.get({ plain: true });
 
@@ -111,10 +113,12 @@ router.get('/profile', withAuth, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+    // TODO: render error on Handlebars
+    // TODO: 404? Probably not.
   }
 });
 
-
+// ! Def works. Boilerplate.
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
