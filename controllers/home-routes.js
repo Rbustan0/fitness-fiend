@@ -6,6 +6,8 @@ const withAuth = require('../utils/auth');
 
 // Get User route
 // No need for withauth (withAuth,)
+
+// HOMEPAGE
 router.get('/', async (req, res) => {
   try {
     // Get all users
@@ -26,6 +28,8 @@ router.get('/', async (req, res) => {
 //get meal route
 // const meal = oneMeal.get({plain: true})
 //res.render('mealsAll', meal)
+
+// GET INDIVIDUAL MEALS NOT RELATED TO USER
 router.get('/meal/:id', async (req, res) => {
   try {
       const id = parseInt(req.params.id);
@@ -36,15 +40,21 @@ router.get('/meal/:id', async (req, res) => {
           res.render('mealUpdate', meal)
       } else {
           res.status(404).json({ error: 'Meal not found' });
+
+          // TODO: render error on Handlebars
       }
   } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Failed to get meal' });
-  }
+      
+      // TODO: render error on Handlebars
+  
+    }
 });
 
 // Get workout route
-
+// GET WORKOUT BY USER ID
+// ! Tested and Works
 router.get('/workout/:id', async (req, res) => {
   try {
       const id = parseInt(req.params.id);
@@ -52,23 +62,27 @@ router.get('/workout/:id', async (req, res) => {
       if (oneWorkout) {
         const workout = oneWorkout.get({plain: true})
           // res.json(oneMeal);
-          res.render('workoutUpdate', workout)
+          res.render('workoutUpdate', workout);
+          // TODO: remove "user:" from associated handlebars template
+          // TODO: fix date created formate as well as underscore template.
       } else {
           res.status(404).json({ error: 'Meal not found' });
+          // TODO: render error on Handlebars
       }
   } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Failed to get workout bum!!' });
+      // TODO: render error on Handlebars
   }
 });
 
 // does not include /api
 // all workout, user, and meal routes include /api/
-
+// ! Tested and Works
 router.get('/user/:id', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id);
-
+    // res.status(200).json(userData);
     const user = userData.get({ plain: true });
 
     res.render('user', {
