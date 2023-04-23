@@ -6,7 +6,10 @@ const withAuth = require('../../utils/auth');
 
 
 // ! Login Shiz
-// THIS WORKS
+
+
+// session data required for login
+//! THIS WORKS
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -22,6 +25,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Redirect to login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -47,10 +51,12 @@ router.post('/login', async (req, res) => {
       req.session.logged_in = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
+      // TODO: maybe render this in handlebars?
     });
 
   } catch (err) {
     res.status(400).json(err);
+    // TODO: maybe render this in handlebars?
   }
 });
 
@@ -68,6 +74,7 @@ router.post('/logout', (req, res) => {
 // ! User Shiz
 
 // GET ALL USERS for testing purposes - THIS WORKS
+// TODO: COMMENT THIS OUT WHEN SUBMITTING
 router.get('/', async (req, res) => {
 try {
   const userData = await User.findAll();
@@ -79,7 +86,8 @@ catch (err) {
 });
 
 
-// GET USER ID: THIS WORKS
+// GET USER ID with associated meals and associated workouts
+//  ! works!
 router.get('/:id', withAuth, async (req, res) => {
   try{
     const userData = await User.findByPk(req.params.id, {
@@ -98,7 +106,8 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 
-// Update information for a specific user. THIS WORKS
+// Update information for a specific user. 
+// ! THIS WORKS
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const updatedUserData = await User.update(req.body, {
@@ -116,7 +125,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
 
 // Retrieve all meals for a specific user. Could have thrown this in the meal routes but seems to work with a User route as a catch all.
-// THIS WORKS
+// ! THIS WORKS
 router.get('/meal/:id', withAuth, async (req, res) => {
   try {
     const mealData = await Meal.findAll({
@@ -135,7 +144,8 @@ router.get('/meal/:id', withAuth, async (req, res) => {
 });
 
 
-// Create a new meal for a specific user. THIS WORKS
+// Create a new meal for a specific user. 
+// ! THIS WORKS
 router.post('/meal/:id', withAuth, async (req, res) => {
   try {
     const newMeal = await Meal.create({
@@ -154,10 +164,11 @@ router.post('/meal/:id', withAuth, async (req, res) => {
   }
 });
 
-
+// Gets all workouts pertaining to the user.
+// ! Works!
 router.get('/workout/:id', withAuth, async (req, res) => {
   try {
-    const allWorkouts = await Workout.findAll({ where: { user_id: req.user.id } });
+    const allWorkouts = await Workout.findAll({ where: { user_id: req.params.id } });
     res.json(allWorkouts);
 
     // TODO: render in handlebars
@@ -166,7 +177,7 @@ router.get('/workout/:id', withAuth, async (req, res) => {
   }
   catch (error) {
 
-    console.error(error)
+    console.error(error);
     res.status(500).json({ message: "Failed to fetch workouts." });
   }
 
@@ -178,7 +189,7 @@ router.get('/workout/:id', withAuth, async (req, res) => {
 
 
 // Create a new workout for a specific user.
-// THIS WORKS!
+// ! THIS WORKS! 
 router.post('/workout/:id', withAuth, async (req, res) => {
   try {
     const newWorkout = await Workout.create({
