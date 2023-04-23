@@ -87,8 +87,8 @@ catch (err) {
 
 
 // GET USER ID with associated meals and associated workouts
-//  ! works!
-router.get('/:id', withAuth, async (req, res) => {
+//  ! works! withAuth,
+router.get('/:id',  async (req, res) => {
   try{
     const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password'] },
@@ -125,7 +125,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
 
 // Retrieve all meals for a specific user. Could have thrown this in the meal routes but seems to work with a User route as a catch all.
-// ! THIS WORKS
+// ! THIS WORKS 
 router.get('/meal/:id', withAuth, async (req, res) => {
   try {
     const mealData = await Meal.findAll({
@@ -145,7 +145,7 @@ router.get('/meal/:id', withAuth, async (req, res) => {
 
 
 // Create a new meal for a specific user. 
-// ! THIS WORKS
+// ! THIS WORKS 
 router.post('/meal/:id', withAuth, async (req, res) => {
   try {
     const newMeal = await Meal.create({
@@ -165,8 +165,8 @@ router.post('/meal/:id', withAuth, async (req, res) => {
 });
 
 // Gets all workouts pertaining to the user.
-// ! Works! withAuth,
-router.get('/workout/:id',  async (req, res) => {
+// ! Works! 
+router.get('/workout/:id', withAuth, async (req, res) => {
   try {
     const allWorkouts = await Workout.findAll({ where: { user_id: req.params.id } });
     res.json(allWorkouts);

@@ -30,7 +30,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
 
 // DELETE /workout/:id: Delete a specific workout.
-//  
+//  ! WORKS
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const workout = await Workout.findOne({ where: { id: req.params.id, user_id: req.user.id } });

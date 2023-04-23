@@ -3,7 +3,8 @@ const router = require('express').Router();
 const { Meal, User, Workout } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
+// This changes an individual meal of a user
+// ! WORKS
 router.put('/:id', withAuth, async (req, res) => {
 
 try{
@@ -31,7 +32,8 @@ catch{
 
 });
 
-
+// Deletes meal of individual user
+// ! WORKS
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const meal = await Meal.findOne({
