@@ -1,16 +1,21 @@
 const router = require('express').Router();
 
-const { Meal} = require('../../models');
+const { Meal, User, Workout } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 // Get all meals
 // Get Route
 
 
-// Discuss with Anthony about moving this to the user route.
-router.get('/', async (req, res) => {
+// Roye: Included where and include statements to make sure that only the user can see and access its own route data.
+
+router.get('/', withAuth, async (req, res) => {
     try {
-        const allMeals = await Meal.findAll();
+        const allMeals = await Meal.findAll({
+            where: { user_id: req.session.user_id },
+            include: [{model: User}]
+        });
         res.json(allMeals);
     } catch (error) {
         console.error(error)
@@ -33,7 +38,7 @@ router.get('/', async (req, res) => {
 // 	}
 
 // POST route for creating a new meal
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const { meal_name, description, meal_date, calories, meal_type, user_id } = req.body; // Extracting the required fields from req.body
         const newMeal = await Meal.create({
@@ -45,6 +50,7 @@ router.post('/', async (req, res) => {
             user_id
         });
         res.json(newMeal);
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Failed to create new meal" });
@@ -54,10 +60,16 @@ router.post('/', async (req, res) => {
 
 // ? added two routes incase CRUD
 
-router.put('/:id', async (req, res) => {
+
+
+// TODO: NEED to fix routes so that it only edits the users meal not the rest. 
+
+router.put('/:id', withAuth, async (req, res) => {
 
 try{
-    const meal = await Meal.findByPk(req.params.id);
+    const meal = await Meal.findOne({
+        where: { id: req.params.id, user_id: req.session.user_id },
+    });
     
     if (!meal) {
         res.status(404).json({ error: 'Meal not found' });
@@ -66,6 +78,9 @@ try{
 
     const updatedMeal = await meal.update(req.body);
     res.json(updatedMeal);
+
+    // TODO Render some html message that indicates successful change
+
 }
 catch{
     res.status(500).json({ error: "Failed to update meal" });
@@ -85,6 +100,8 @@ router.delete('/:id', async (req, res) => {
         }
         await meal.destroy();
         res.json({ message: 'Meal deleted' });
+
+        // TODO Render some html message that indicates successful post
     }
     catch{
         res.status(500).json({ error: "Failed to delete meal" });

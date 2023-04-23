@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Meal, Workout } = require('../../models');
 const { findByPk } = require('../../models/user');
+const withAuth = require('../../utils/auth');
 
 
 
@@ -79,7 +80,7 @@ catch (err) {
 
 
 // GET USER ID: THIS WORKS
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try{
     const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password'] },
@@ -94,7 +95,7 @@ router.get('/:id', async (req, res) => {
 
 
 // Update information for a specific user. THIS WORKS
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const updatedUserData = await User.update(req.body, {
       where: { id: req.params.id },
@@ -108,7 +109,7 @@ router.put('/:id', async (req, res) => {
 
 // Retrieve all meals for a specific user. Could have thrown this in the meal routes but seems to work with a User route as a catch all.
 // THIS WORKS
-router.get('/meals/:id', async (req, res) => {
+router.get('/meals/:id', withAuth, async (req, res) => {
   try {
     const mealData = await Meal.findAll({
       where: { user_id: req.params.id },
@@ -121,7 +122,7 @@ router.get('/meals/:id', async (req, res) => {
 
 
 // Create a new meal for a specific user. THIS WORKS
-router.post('/meals/:id', async (req, res) => {
+router.post('/meals/:id', withAuth, async (req, res) => {
   try {
     const newMeal = await Meal.create({
       ...req.body,

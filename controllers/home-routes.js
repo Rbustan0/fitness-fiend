@@ -5,7 +5,8 @@ const withAuth = require('../utils/auth');
 
 
 // Get User route
-router.get('/', withAuth, async (req, res) => {
+// No need for withauth (withAuth,)
+router.get('/', async (req, res) => {
   try {
     // Get all users
     const userData = await User.findAll();
@@ -64,7 +65,7 @@ router.get('/workout/:id', async (req, res) => {
 // does not include /api
 // all workout, user, and meal routes include /api/
 
-router.get('/user/:id', async (req, res) => {
+router.get('/user/:id', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id);
 

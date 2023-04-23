@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Workout, Meal } = require('../../models');
+const { Workout, Meal, User } = require('../../models');
 
 
 
