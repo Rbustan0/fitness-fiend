@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Meal, Workout } = require('../../models');
 const { findByPk } = require('../../models/user');
+const withAuth = require('../../utils/auth');
 
 
 
@@ -79,95 +80,98 @@ catch (err) {
 
 
 // GET USER ID: THIS WORKS
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try{
     const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Meal }, { model: Workout }]
     });
     res.status(200).json(userData);
+    // TODO: render in handlebars
+    
   }
   catch (err) {
     res.status(500).json(err);
+    // TODO: render in handlebars
+    
   }
 });
 
 
 // Update information for a specific user. THIS WORKS
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const updatedUserData = await User.update(req.body, {
       where: { id: req.params.id },
     });
     res.status(200).json(updatedUserData);
+    // TODO: render in handlebars
+    
   } catch (err) {
     res.status(500).json(err);
+    // TODO: render in handlebars
+    
   }
 });
 
 
 // Retrieve all meals for a specific user. Could have thrown this in the meal routes but seems to work with a User route as a catch all.
 // THIS WORKS
-router.get('/meals/:id', async (req, res) => {
+router.get('/meal/:id', withAuth, async (req, res) => {
   try {
     const mealData = await Meal.findAll({
       where: { user_id: req.params.id },
     });
     res.status(200).json(mealData);
+
+    //TODO: render in handlebars
+
   } catch (err) {
     res.status(500).json(err);
+
+    //TODO: render in handlebars
+
   }
 });
 
 
 // Create a new meal for a specific user. THIS WORKS
-router.post('/meals/:id', async (req, res) => {
+router.post('/meal/:id', withAuth, async (req, res) => {
   try {
     const newMeal = await Meal.create({
       ...req.body,
       user_id: req.params.id,
     });
     res.status(200).json(newMeal);
+
+    //TODO: render in handlebars
+
   } catch (err) {
     res.status(500).json(err);
+
+    //TODO: render in handlebars
+
   }
 });
 
 
-// // Retrieve all workouts for a specific user. this is also in the workout routes
-// router.get('/:id/workouts', async (req, res) => {
-//   try {
-//     const workoutData = await Workout.findAll({
-//       where: { user_id: req.params.id },
-//     });
-//     res.status(200).json(workoutData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// Get all User workouts specific to the user - 
-// router.get('/workout/:id', async (req, res) => {
-//   const id = parseInt (req.params.id)
-//   try {
-//       const allWorkouts = await Workout.findByPk(id, {where:[{ id: user_id }]}
-//        );
-//       res.json(allWorkouts);
-//   } catch (error) {
-//       console.error(error)
-//       res.status(500).json({ message: "Failed to fetch workouts." });
-//   }
-// });
-
-router.get('/workout/:id', async (req, res) => {
+router.get('/workout/:id', withAuth, async (req, res) => {
   try {
-    const workoutData = await Workout.findAll({
-      where: { user_id: req.params.id },
-    });
-    res.status(200).json(workoutData);
-  } catch (err) {
-    res.status(500).json(err);
+    const allWorkouts = await Workout.findAll({ where: { user_id: req.user.id } });
+    res.json(allWorkouts);
+
+    // TODO: render in handlebars
+
+
   }
+  catch (error) {
+
+    console.error(error)
+    res.status(500).json({ message: "Failed to fetch workouts." });
+  }
+
+  // TODO: render in handlebars
+
 });
 
 
@@ -175,15 +179,23 @@ router.get('/workout/:id', async (req, res) => {
 
 // Create a new workout for a specific user.
 // THIS WORKS!
-router.post('/workout/:id', async (req, res) => {
+router.post('/workout/:id', withAuth, async (req, res) => {
   try {
     const newWorkout = await Workout.create({
       ...req.body,
       user_id: req.params.id,
     });
+    
     res.status(200).json(newWorkout);
+
+    // TODO: render in handlebars
+
   } catch (err) {
+    
     res.status(500).json(err);
+
+    // TODO: render in handlebars
+
   }
 });
 
