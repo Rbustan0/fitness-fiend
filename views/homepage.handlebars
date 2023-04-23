@@ -1,4 +1,6 @@
-<!-- Loop over each object in the projects array -->
+{{!-- ! This page should match homepage.js --}}
+
+<!-- Loop over each object in the HOME ROUTES -->
 {{#each projects as |project| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
@@ -8,7 +10,7 @@
       <a href="/project/{{project.id}}">{{project.name}}</a>
     </h2>
     <p>
-      <span for="img" aria-label="money">💲</span>
+      <span for="img" aria-label="fitness ">💲</span>
       <!-- Pass needed_funding value to the helper function -->
       <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
       needed!
