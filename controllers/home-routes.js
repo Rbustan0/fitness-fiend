@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 
 // Get User route
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // Get all users
     const userData = await User.findAll();
