@@ -10,22 +10,22 @@ const withAuth = require('../../utils/auth');
 
 // Roye: Included where and include statements to make sure that only the user can see and access its own route data.
 
-// Note that we might not even need this route due to whats in user data.
+// !Note that we might not even need this route due to whats in user data.
 
-router.get('/', withAuth, async (req, res) => {
-    try {
-        const allMeals = await Meal.findAll({
-            where: { user_id: req.session.user_id },
-            include: [{model: User}]
-        });
-        res.json(allMeals);
-    } catch (error) {
-        console.error(error)
-        res.status(500).json({ message: "Failed to fetch meals." });
-    }
-});
+// router.get('/', withAuth, async (req, res) => {
+//     try {
+//         const allMeals = await Meal.findAll({
+//             where: { user_id: req.session.user_id },
+//             include: [{model: User}]
+//         });
+//         res.json(allMeals);
+//     } catch (error) {
+//         console.error(error)
+//         res.status(500).json({ message: "Failed to fetch meals." });
+//     }
+// });
 
-// GOOD
+// // GOOD
 
 
 
@@ -71,17 +71,19 @@ try{
     
     if (!meal) {
         res.status(404).json({ error: 'Meal not found' });
+        // TODO Render in handlebars instead
         return;
     }
 
     const updatedMeal = await meal.update(req.body);
     res.json(updatedMeal);
 
-    // TODO Render some html message that indicates successful change
+    // TODO Render in handlebars instead
 
 }
 catch{
     res.status(500).json({ error: "Failed to update meal" });
+    // TODO Render in handlebars instead
 }
 
 
@@ -95,17 +97,19 @@ router.delete('/:id', withAuth, async (req, res) => {
         });
         if (!meal) {
             res.status(404).json({ error: 'Meal not found.' });
+            // TODO Render in handlebars instead
             return;
         }
         await meal.destroy();
         res.json({ message: 'Meal deleted.' });
 
-        // TODO Render some html message that indicates successful change
+        // TODO Render in handlebars instead
 
 
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Failed to delete meal.' });
+        // TODO Render in handlebars instead
     }
 });
 
