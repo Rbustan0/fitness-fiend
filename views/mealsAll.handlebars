@@ -1,7 +1,12 @@
 
-               <p id="renderInfo">
-
-               </p>
+               <div id="renderInfo">
+                {{#each user.meals as |meal|}}
+                <p>{{meal.meal_name}}</p>
+                <p> {{meal.calories}}</p>
+                <p> {{meal.description}}</p>
+                <p> {{meal.meal_type}}</p>
+                {{/each}}
+               </div>
 
 
 

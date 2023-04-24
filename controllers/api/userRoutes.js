@@ -144,27 +144,7 @@ router.get('/meal/:id', withAuth, async (req, res) => {
 });
 
 
-// Create a new meal for a specific user. 
-// ! THIS WORKS 
-router.post('/meal/:id', withAuth, async (req, res) => {
-  try {
-    const newMeal = await Meal.create({
-      ...req.body,
-      user_id: req.params.id,
-    });
-    res.status(200).json(newMeal);
 
-    //TODO: render in handlebars
-    const meal = newMeal.get({plain: true})
-    // res.json(oneMeal);
-    res.render('mealsAll', meal)
-  } catch (err) {
-    res.status(500).json(err);
-
-    //TODO: render in handlebars
-
-  }
-});
 
 // Gets all workouts pertaining to the user.
 // ! Works! 

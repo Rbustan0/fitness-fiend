@@ -3,6 +3,33 @@ const router = require('express').Router();
 const { Meal, User, Workout } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+
+// Create a new meal for a specific user. 
+// ! THIS WORKS 
+router.post('/', withAuth, async (req, res) => {
+    try {
+        const newMeal = await Meal.create({
+            ...req.body,
+            user_id: req.session.user_id,
+        });
+        res.status(200).json(newMeal);
+
+        
+        // const meal = newMeal.get({ plain: true })
+        // res.json(meal);
+        // res.render('mealsAll', meal)
+    } catch (err) {
+        res.status(500).json(err);
+
+     
+
+    }
+});
+
+
+
+
 // This changes an individual meal of a user
 // ! WORKS
 router.put('/:id', withAuth, async (req, res) => {
