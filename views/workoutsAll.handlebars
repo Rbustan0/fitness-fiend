@@ -1,9 +1,10 @@
  <div id="renderInfo">
                 {{#each user.workouts as |workout|}}
-                <p>{{meal.meal_name}}</p>
-                <p> {{meal.calories}}</p>
-                <p> {{meal.description}}</p>
-                <p> {{meal.meal_type}}</p>
+                <p>{{workout.workout_name}}</p>
+                <p> {{workout.duration}}</p>
+                <p> {{workout.workout_description}}</p>
+                <p> {{workout.workout_type}}</p>
+                <p> {{workout.calories_burnt}}</p>
                 {{/each}}
                </div>
 
@@ -13,22 +14,24 @@
 
                 <form action="form">
                     <div>
-                        <h3>What's your meal Name?</h3>
-                        <input id= "mealName" type="text"> 
+                        <h3>What's your workout Name?</h3>
+                        <input id= "workoutName" type="text"> 
                       </div>
               
                       <div>
-                        <h3>What Category does your Meal into?</h3>
-                        <select name="mealType" id="mealType">
-                          <option value="breakfast">breakfast</option>
-                          <option value="lunch">lunch</option>
-                          <option value="dinner">dinner</option>
-                          <option value="snack">snack</option>
+                        <h3>What Category does your workout into?</h3>
+                        <select name="workoutType" id="workoutType">
+                          <option value="stretching">stretching</option>
+                          <option value="cardio">cardio</option>
+                          <option value="strengthTraining">strength training</option>
+                          <option value="conditionalTraining">conditional training</option>
+                        <option value="sport">sport</option>
                         </select>
+                        <option value="calesthetics">calesthetics</option>
                       </div>
 
                       <div>
-                        <h3>Provide a Meal Description!</h3>
+                        <h3>Provide a Workout Description!</h3>
                         <input id="mealDescription"type="text">
                       </div>
   
