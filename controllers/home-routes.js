@@ -129,26 +129,18 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/profile', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/mealsAll');
-    return;
-  }
 
+router.get('/mealsAll', (req, res) => {
   res.render('mealsAll');
 });
-// router.get('/mealsAll', (req, res) => {
-//   if (req.session.logged_in) {
-//     // Redirect to another route or send a response when logged_in is truthy
-//     // For example:
-//     res.redirect('/dashboard');
-//   } else {
-//     // Render the mealsAll.handlebars template if logged_in is falsy
-//     res.render('mealsAll');
-//   }
-// });
 
+router.get('/workoutsAll', (req, res) => {
+  res.render('workoutsAll');
+});
+
+router.get('/user', (req, res) => {
+  res.render('user');
+});
 
 
 
