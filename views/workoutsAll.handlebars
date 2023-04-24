@@ -1,4 +1,4 @@
- <div id="renderInfo">
+ <div id="renderWorkout">
                 {{#each user.workouts as |workout|}}
                 <p>{{workout.workout_name}}</p>
                 <p> {{workout.duration}}</p>
@@ -32,15 +32,19 @@
 
                       <div>
                         <h3>Provide a Workout Description!</h3>
-                        <input id="mealDescription"type="text">
+                        <input id="workoutDescription"type="text">
                       </div>
   
                       <div>
-                        <h3>How many calories does your Meal consist of?</h3>
-                        <input id="mealCalories"type="text">
+                        <h3>How many calories did you burn today!?</h3>
+                        <input id="workoutCalories"type="text">
                       </div>
 
-                      <button id="newMealBtn">Add Meal</button>
+                    <div>
+                        <h3>How long was your workout today?</h3>
+                        <input id="workoutDuration"type="text">
+                    </div>
+                      <button id="newWorkoutBtn">Add Workout</button>
                 </form>
             </section>
 
@@ -50,4 +54,4 @@
 
 
 
-      <script src="/js/mealsAll.js"></script>
+      <script src="/js/workoutsAll.js"></script>

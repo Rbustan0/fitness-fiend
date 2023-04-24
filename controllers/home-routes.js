@@ -60,8 +60,8 @@ router.get('/meals', async (req, res) => {
     });
     
     const user = userData.get({ plain: true });
-     res.json(user);
-    // res.render('mealsAll', { user, logged_in: req.session.logged_in });
+    //  res.json(user);
+    res.render('mealsAll', { user, logged_in: req.session.logged_in });
 
   } catch (error) {
     console.error(error);
@@ -80,8 +80,8 @@ router.get('/workouts', async (req, res) => {
     });
     
     const user = userData.get({ plain: true });
-    //  res.json(userData);
-    res.render('workoutsAll', { user, logged_in: req.session.logged_in });
+    //  res.json(user);
+    res.render('workoutsAll', { user, logged_in: req.session.logged_in}); 
 
   } catch (error) {
     console.error(error);
@@ -167,23 +167,6 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
-});
-
-
-router.get('/profile', (req, res) => {
-  
-})
-// Get routes for the pages we need.
-router.get('/mealsAll', (req, res) => {
-  res.render('mealsAll');
-});
-
-router.get('/workoutsAll', (req, res) => {
-  res.render('workoutsAll');
-});
-
-router.get('/user', (req, res) => {
-  res.render('user');
 });
 
 
