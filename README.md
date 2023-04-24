@@ -16,7 +16,13 @@ We also learned how to understand user needs and preferences by becoming the use
 
 Some challenges we faced were connecting our backend routes to the front end handlebars. Implementing chart.js was a challenge in creating a chart that would total the sum of our data from different pages.   
 
-Ideas for future development.....
+Ideas for future development: 
+- Add workout playlist
+- Social media integration
+- Motivational quotes everytime you login
+- Provide personalized recommendations
+- Gamification
+- Syncs with existing fitness tracking devices
 
 
 LINK TO DEPLOYED WEBAPP VIA HEROKU: 
