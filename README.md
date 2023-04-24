@@ -14,7 +14,7 @@ We learned how to apply our technical skills such as using Handlebars.js for ren
 
 We also learned how to understand user needs and preferences by becoming the user as we created that app knowing that we had to provide users with a platform to set fitness goals, track workouts and meals and viewing progress over a period of time.  This resulted in us creating multiple front end javascript pages to match respective handlebars layouts.  We also incorportated the importance of securely logging in and out of the app, protecting user data, and responding appropriately to GET and POST requests. Finally, creating this app provided an opportunity to test and refine the app based on user feedback, and learn about best practices for creating effective and engaging fitness tracking apps.
 
-Some challenges we faced were connecting our backend routes to the front end handlebars.  
+Some challenges we faced were connecting our backend routes to the front end handlebars. Implementing chart.js was a challenge in creating a chart that would total the sum of our data from different pages.   
 
 Ideas for future development.....
 
@@ -85,9 +85,6 @@ Please refer to the MIT license in the repo.
 
 Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
 
-## Features
-
-If your project has a lot of features, list them here.
 
 ## How to Contribute
 
