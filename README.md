@@ -50,8 +50,7 @@ The following packages and dependencis are necessary to run the application:
     express-session^1.17.1
     mysql2^2.2.5
     sequelize^6.3.5
-
-    chart.js
+    chart.js^4.0.0
 
 
 
