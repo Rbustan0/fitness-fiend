@@ -130,6 +130,10 @@ router.get('/login', (req, res) => {
 });
 
 
+router.get('/profile', (req, res) => {
+  
+})
+// Get routes for the pages we need.
 router.get('/mealsAll', (req, res) => {
   res.render('mealsAll');
 });
