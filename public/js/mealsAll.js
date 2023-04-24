@@ -7,7 +7,7 @@ async function renderMeal(event) {
   const description = document.getElementById('mealDescription').value;
   const calories = document.getElementById('mealCalories').value;
   const meal_type = document.getElementById('mealType').value
-  const selectedValue = mealType;
+
   
   const response = await fetch('/api/meal', {
         method: 'POST',

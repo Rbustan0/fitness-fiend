@@ -1,37 +1,57 @@
-{{!-- for GET all workouts // to match user.js --}}
-{{!-- this page will match mealsAll.js and populate all meals for a user--}}
+ <div id="renderWorkout">
+                {{#each user.workouts as |workout|}}
+                <p>{{workout.workout_name}}</p>
+                <p> {{workout.duration}}</p>
+                <p> {{workout.workout_description}}</p>
+                <p> {{workout.workout_type}}</p>
+                <p> {{workout.calories_burnt}}</p>
+                {{/each}}
+               </div>
 
-{{!-- We need a each statement that checks length of meals and automatically shows it to the user when they are on this
-page. --}}
-
-<div>
-
-</div>
 
 
-<div>
-    <h1>What would you like to do?</h1>
-    <ul>
-        <li><a href="">view all Workouts</a></li>
-        <li><a href="">Add Workouts</a></li>
-        <li><a href="">Update workout</a></li>
+              <section>
 
-        {{!-- <li><a href="/workoutUpdate">Add Workout</a></li>
-        <li><a href="/user">Edit User</a></li> --}}
-    </ul>
-</div>
+                <form action="form">
+                    <div>
+                        <h3>What's your workout Name?</h3>
+                        <input id= "workoutName" type="text"> 
+                      </div>
+              
+                      <div>
+                        <h3>What Category does your workout into?</h3>
+                        <select name="workoutType" id="workoutType">
+                          <option value="stretching">stretching</option>
+                          <option value="cardio">cardio</option>
+                          <option value="strengthTraining">strength training</option>
+                          <option value="conditionalTraining">conditional training</option>
+                        <option value="sport">sport</option>
+                        </select>
+                        <option value="calesthetics">calesthetics</option>
+                      </div>
 
-{{!-- Shows true when user selects add meals --}}
-<section>
-    all workouts
-</section>
-{{!-- Shows true when user selects update meals --}}
+                      <div>
+                        <h3>Provide a Workout Description!</h3>
+                        <input id="workoutDescription"type="text">
+                      </div>
+  
+                      <div>
+                        <h3>How many calories did you burn today!?</h3>
+                        <input id="workoutCalories"type="text">
+                      </div>
 
-<section>
-    What would you workout be called?
-</section>
-{{!-- Shows true when user selects delete meals --}}
+                    <div>
+                        <h3>How long was your workout today?</h3>
+                        <input id="workoutDuration"type="text">
+                    </div>
+                      <button id="newWorkoutBtn">Add Workout</button>
+                </form>
+            </section>
 
-<section>
-    which workout would you like to update?
-</section>
+
+
+
+
+
+
+      <script src="/js/workoutsAll.js"></script>
