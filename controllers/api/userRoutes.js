@@ -155,7 +155,9 @@ router.post('/meal/:id', withAuth, async (req, res) => {
     res.status(200).json(newMeal);
 
     //TODO: render in handlebars
-
+    const meal = newMeal.get({plain: true})
+    // res.json(oneMeal);
+    res.render('mealsAll', meal)
   } catch (err) {
     res.status(500).json(err);
 
