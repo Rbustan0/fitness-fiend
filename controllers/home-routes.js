@@ -92,6 +92,25 @@ router.get('/workouts', async (req, res) => {
   }
 });
 
+// GET all user info
+router.get('/user', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id);
+
+    const user = userData.get({ plain: true });
+    // res.json(user);
+     res.render('user', { user, logged_in: req.session.logged_in });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to get user' });
+
+
+
+  }
+});
+
+
 // Get workout route
 // GET WORKOUT BY USER ID
 // ! Tested and Works

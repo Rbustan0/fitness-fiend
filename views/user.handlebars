@@ -1,32 +1,51 @@
 {{!-- to match user.js --}}  
 
 
-<p>
-    {{user_name}}
-</p>
-<p>
-    {{email}}
-</p>
-<p>
-    {{password}}
-</p>
-<p>
-    {{date_created}}
-</p>
-<p>
-    {{weight}}
-</p>
- <p>
-    {{goal_weight}}
- </p>
- <p>
-    {{height}}
- </p>
- <p>
-    {{age}}
- </p>
- <p>
-    {{bmi}}
- </p>
-    
- 
+<section>
+
+    <form action="form" id = 'user-form'>
+        
+        <div>
+            <h2 class = 'title'>User Settings</h2>
+        </div>
+
+        <div class="group">
+            <input id="current-weight" class="form-input" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="current-weight">Current weight (lb)</label>
+        </div>
+
+        <div class = 'group'>
+            <input id="goal-weight" class="form-input" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="form-input">goal weight (lb)</label>
+        </div>
+
+        <div class="group">
+            <input id="height" class="form-input" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="form-input">Current height (in)</label>
+        </div>
+
+      <div class = 'group'>
+            <input id="age" class="form-input" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="form-input">age</label>
+        </div>
+
+         <div class = 'group'>
+            <input id="bmi" class="form-input" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="bmi">current bmi</label>
+        </div>
+
+        <button id="updateUserBtn">Update User</button>
+    </form>
+</section>
+
+<script src="./js/user.js"></script>
