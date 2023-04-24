@@ -22,7 +22,10 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
+        <a href="/profile">profile</a>
+        <a href="/mealsAll">Meal</a>
+        {{!-- <a id="hrefMeals" href="/meal">Meals</a> --}}
+        <a id="hrefWorkouts" href="/workoutsAll">Workouts</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <h2>Start Tracking your fitness</h2>
@@ -37,9 +40,10 @@
       {{#if logged_in}}
       <aside>
         <ul>
-          <li><a href="/mealsAll">Meals</a></li>
-          <li><a href="/workoutsAll">Workouts</a></li>
-          <li><a href="/user">Edit User</a></li>
+            <li><a href="/mealsAll">Meals</a></li>
+            <li><a href="/workoutsAll">Workouts</a></li>
+            <li><a href="/user">User</a></li>
+
         </ul>
       </aside>
       {{/if}}
