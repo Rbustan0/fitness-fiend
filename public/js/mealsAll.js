@@ -9,6 +9,7 @@ function renderMeal(event) {
   const mealType = document.getElementById('mealType').value
   const selectedValue = mealType;
   
+  
   renderInfo.innerHTML = `
     <h1>Meal Name:</h1><p>${mealName}</p>
     <h1>Meal Description:</h1><p>${mealDescription}</p>
