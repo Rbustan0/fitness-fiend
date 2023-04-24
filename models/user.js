@@ -45,26 +45,30 @@ User.init(
     
     weight: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     
     goal_weight: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     
     height:{
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
 
     age: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     
     bmi:{
       type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    name: {
+      type: DataTypes.STRING,
       allowNull: false
     }
   },

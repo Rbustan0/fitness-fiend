@@ -48,11 +48,7 @@ const loginBtn = document.getElementById('login-btn');
 loginBtn.addEventListener('click', loginFormHandler);
 
 
+const signupBtn = document.getElementById('signup-Btn');
+signupBtn.addEventListener('click', signupFormHandler);
 
-// document
-//   .querySelector('.login-form')
-//   .addEventListener('submit', loginFormHandler);
 
-// document
-//   .querySelector('.signup-form')
-//   .addEventListener('submit', signupFormHandler);
