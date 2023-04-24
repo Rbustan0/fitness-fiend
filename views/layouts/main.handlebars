@@ -19,20 +19,15 @@
         <span role="img" aria-label="💪🏿 💪🏾 💪 💪🏻fitness💪🏿 💪🏾 💪 💪🏻"></span>
         <a href="/">🏃🏾 🏄 🚴🏼 🧘🏾 🤸FITNESS FIEND : Fitness Tracker ⚽ 🏀 🥊 💥 🏋️</a>
       </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a>
-        <a href="/mealsAll">Meal</a>
-        {{!-- <a id="hrefMeals" href="/meal">Meals</a> --}}
-        <a id="hrefWorkouts" href="/workoutsAll">Workouts</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <h2>Start Tracking your fitness</h2>
-
-        <p>Don't have an account yet or already have an account? <a href="/login">login/signup</a></p>
-        {{/if}}
-      </nav>
+        <nav>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+          <a href="/profile">profile</a> |
+          <button class="no-button" id="logout">logout</button>
+          {{else}}
+          <a href="/login">login</a>
+          {{/if}}
+        </nav>
     </header>
 
     
