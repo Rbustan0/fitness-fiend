@@ -1,4 +1,4 @@
-// TODO: FINISH ME
+// ! DONT TOUCH THIS FILE
 
 const logout = async () => {
     const response = await fetch('/api/user/logout', {
