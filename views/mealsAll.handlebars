@@ -1,49 +1,20 @@
-{{!-- this page will match mealsAll.js and populate all meals for a user--}}
 
-    {{!-- We need a each statement that checks length of meals and automatically shows it to the user when they are on this page. --}}
-    
-  
+               <p id="renderInfo">
 
-    {{!-- <div>
-      <h1>Meal 1</h1>
-     Meal Name: {{meal_name}}
-     Date Created: {{meal_date}}
-     Meal Description: {{description}}
-     Meal Calories: {{calories}}
-     
-
-    </div> --}}
-    
-    {{!-- <div>
-        <h1>What would you like to do?</h1>
-        <ul>
-          <li><a href="">add meals</a></li>
-          <li><a href="">update meals</a></li>
-          <li><a href="">delete meals</a></li>
-          
-          {{!-- <li><a href="/workoutUpdate">Add Workout</a></li>
-          <li><a href="/user">Edit User</a></li> --}}
-        </ul>
-    </div> --}}
+               </p>
 
 
-   <div>
-               <div id="renderInfo">
 
-               </div>
-
-
-{{!-- Shows true when user selects add meals --}}
               <section>
 
                 <form action="form">
                     <div>
-                        <label>What's your meal Name?</label>
+                        <h3>What's your meal Name?</h3>
                         <input id= "mealName" type="text"> 
                       </div>
               
                       <div>
-                        <label>What Category does your Meal into?</label>
+                        <h3>What Category does your Meal into?</h3>
                         <select name="mealType" id="mealType">
                           <option value="breakfast">breakfast</option>
                           <option value="lunch">lunch</option>
@@ -53,37 +24,23 @@
                       </div>
 
                       <div>
-                        <label>Provide a Meal Description!</label>
+                        <h3>Provide a Meal Description!</h3>
                         <input id="mealDescription"type="text">
                       </div>
   
                       <div>
-                        <label>How many calories does your Meal consist of?</label>
+                        <h3>How many calories does your Meal consist of?</h3>
                         <input id="mealCalories"type="text">
                       </div>
 
                       <button id="newMealBtn">Add Meal</button>
                 </form>
             </section>
-   </div>
 
 
 
-{{!--        
-     
 
 
-
-{{!-- Shows true when user selects update meals --}}
-
-      <section>
-
-      </section>
-    {{!-- Shows true when user selects delete meals --}}
-
-      <section>
-        
-      </section> --}}
 
 
       <script src="/js/mealsAll.js"></script>

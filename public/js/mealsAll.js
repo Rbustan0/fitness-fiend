@@ -1,8 +1,8 @@
  
-    const mealName = document.getElementById('mealName').value.trim();
-    const mealDescription = document.getElementById('mealDescription').value.trim();
-    const mealCalories = document.getElementById('mealCalories').value.trim();
-    const mealType = document.getElementById('mealType')
+    const mealName = document.getElementById('mealName').value
+    const mealDescription = document.getElementById('mealDescription').value
+    const mealCalories = document.getElementById('mealCalories').value
+    const mealType = document.getElementById('mealType').value
     const newMealBtn = document.getElementById('newMealBtn')
     const renderInfo = document.getElementById('renderInfo')
 
@@ -38,19 +38,13 @@
   function renderMeal(event){
     event.preventDefault()
     renderInfo.innerHTML = `
+    <h1>Meal Name:</h1 <p>${mealName}</p>
 
-    <h1>Meal Name:</h1 
-    <p>${mealName}</p>
+    <h1>Meal Description:</h1 <p>${mealDescription}</p>
 
-    <h1>Meal Description:</h1 
-    <p>${mealDescription}</p>
+    <h1>Meal Type:</h1 <p>${selectedValue}</p>
 
-    <h1>Meal Type:</h1 
-    <p>${selectedValue}</p>
-
-    <h1>Meal Calories:</h1 
-    <p>${mealCalories}</p>
-    `
+    <h1>Meal Calories:</h1 <p>${mealCalories}</p>`
 
 
   }
