@@ -60,8 +60,8 @@ router.get('/meals', async (req, res) => {
     });
     
     const user = userData.get({ plain: true });
-    //  res.json(userData);
-    res.render('mealsAll', { user, logged_in: req.session.logged_in });
+     res.json(user);
+    // res.render('mealsAll', { user, logged_in: req.session.logged_in });
 
   } catch (error) {
     console.error(error);
