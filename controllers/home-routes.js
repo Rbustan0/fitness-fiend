@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Meal, Workout } = require('../models');
 const withAuth = require('../utils/auth');
+const Sequelize = require('sequelize');
 
 
 
@@ -136,10 +137,11 @@ router.get('/user/:id', withAuth, async (req, res) => {
 
 // Use withAuth middleware to prevent access to route
 // ! Tested and presents Null response. Should work due to it being mostly boilerplate. NOTE: Need to check if user is able to create profiles.
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/profile', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
+      include: [{ model: Meal, attributes:[ "calories", [Sequelize.fn("SUM", Sequelize.col("calories")), "totalCalories"]]}, { model: Workout,  attributes:[ "calories_burnt", [Sequelize.fn("SUM", Sequelize.col("calories_burnt")), "totalCaloriesBurnt"]] }],
       attributes: { exclude: ['password'] },
     });
 
@@ -152,6 +154,7 @@ router.get('/profile', withAuth, async (req, res) => {
       logged_in: true
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
     // TODO: render error on Handlebars
     // TODO: 404? Probably not.
