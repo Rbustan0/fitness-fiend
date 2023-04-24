@@ -9,7 +9,7 @@
   <title> FITNESS FIEND </title>
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/style.css">
-  
+
 </head>
 
 <body>
@@ -26,17 +26,30 @@
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <h2>Start Tracking your fitness</h2>
-          
-          <p>Don't have an account yet or already have an account? <a href="/login">login/signup</a></p>
+
+        <p>Don't have an account yet or already have an account? <a href="/login">login/signup</a></p>
         {{/if}}
       </nav>
     </header>
+
+    
     <main class="container container-fluid mt-5">
+      {{#if logged_in}}
+      <aside>
+        <ul>
+          <li><a href="/mealsAll">Meals</a></li>
+          <li><a href="/workoutsAll">Workouts</a></li>
+          <li><a href="/user">Edit User</a></li>
+        </ul>
+      </aside>
+      {{/if}}
+
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
+   
     <footer>
-      
+
     </footer>
   </div>
 
