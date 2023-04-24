@@ -52,6 +52,26 @@ router.get('/meal/:id', async (req, res) => {
     }
 });
 
+// GET all meals for user
+router.get('/meals', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [{ model: Meal }]
+    });
+    
+    const user = userData.get({ plain: true });
+    //  res.json(userData);
+    res.render('mealsAll', { user, logged_in: req.session.logged_in });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to get meal' });
+
+    
+
+  }
+});
+
 // Get workout route
 // GET WORKOUT BY USER ID
 // ! Tested and Works
