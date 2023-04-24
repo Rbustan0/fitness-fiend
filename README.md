@@ -4,7 +4,7 @@ Focus on your fitness goals while these nerds figure out how to track it!
 
 ## Description
 
-Fitness Fiend is a fitness tracker web application that is designed to help users track their fitness goals and progres.  The app will allowe users to creat an account, set fitness goals, and track their progress through creating and tracking their workouts and meals.  The app will provide users with the ability to visualize their progress and stay motivated.  Fitness Fiend also allows users to edit or delete their workouts and meals if they need to update their tracking. By securely logging in and out and protecting user data, the app provides a secure and private way for users to track their fitness progress.
+Fitness Fiend is a fitness tracker web application that is designed to help users track their fitness goals and progres.  The app will allow users to create an account, set fitness goals, and track their progress through creating and tracking their workouts and meals.  The app will provide users with the ability to visualize their progress and stay motivated.  Fitness Fiend also allows users to edit or delete their workouts and meals if they need to update their tracking. By securely logging in and out and protecting user data, the app provides a secure and private way for users to track their fitness progress.
 
 We were motivated to create Fitness Fiend to fulfill our user story of wanting an app that allows users to create an account and log in to track their fitness goals and progress. 
 
@@ -14,7 +14,7 @@ We learned how to apply our technical skills such as using Handlebars.js for ren
 
 We also learned how to understand user needs and preferences by becoming the user as we created that app knowing that we had to provide users with a platform to set fitness goals, track workouts and meals and viewing progress over a period of time.  This resulted in us creating multiple front end javascript pages to match respective handlebars layouts.  We also incorportated the importance of securely logging in and out of the app, protecting user data, and responding appropriately to GET and POST requests. Finally, creating this app provided an opportunity to test and refine the app based on user feedback, and learn about best practices for creating effective and engaging fitness tracking apps.
 
-Some challenges we faced.....
+Some challenges we faced were connecting our backend routes to the front end handlebars.  
 
 Ideas for future development.....
 
@@ -72,6 +72,7 @@ Eduardo Enquirez
 Patricia Alberto
 Bryan Swarthout 
 Hunter Adcock
+Shawn Tschoepe
 
 
 ## License
