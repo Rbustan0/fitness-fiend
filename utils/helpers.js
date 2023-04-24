@@ -21,4 +21,7 @@ module.exports = {
             return `<span for="img" aria-label="gear">⚙️</span>`;
         }
     },
+    json: function(obj) {
+        return JSON.stringify(obj);
+      },
 };
