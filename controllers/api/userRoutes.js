@@ -106,17 +106,22 @@ router.get('/:id',  async (req, res) => {
 
 // Update information for a specific user. 
 // ! THIS WORKS
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/' , withAuth, async (req, res) => {
   try {
-    const updatedUserData = await User.update(req.body, {
-      where: { id: req.params.id },
+    const updatedUserData = await User.update({
+      ...req.body
+    },{
+      where: {
+        id: req.session.user_id
+      },
+      
     });
     res.status(200).json(updatedUserData);
-    // TODO: render in handlebars
+   
     
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
-    // TODO: render in handlebars
     
   }
 });
