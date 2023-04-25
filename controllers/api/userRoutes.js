@@ -109,13 +109,18 @@ router.get('/:id',  async (req, res) => {
 router.put('/' , withAuth, async (req, res) => {
   try {
     const updatedUserData = await User.update({
-      ...req.body,
-      user_id: req.session.user_id,
+      ...req.body
+    },{
+      where: {
+        id: req.session.user_id
+      },
+      
     });
     res.status(200).json(updatedUserData);
    
     
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
     
   }

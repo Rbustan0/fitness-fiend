@@ -24,6 +24,6 @@ const updateFormHandler = async (event) => {
     }
   };
   
-  const updateUserBtn = document.getElementById('updateUserbtn');
+  const updateUserBtn = document.getElementById('updateUserBtn');
   updateUserBtn.addEventListener('click', updateFormHandler);
   
