@@ -11,9 +11,9 @@
 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
 <script>
-var xValues = ["Calories Consumed", "Calories Burnt" ,"Current Weight", "Goal Weight", "Anthony"];
-var yValues = [{{{json meals.[0].totalCalories}}}, {{{json workouts.[0].totalCaloriesBurnt}}}, {{{json weight}}}, {{{json goal_weight}}}, 15];
-var barColors = ["red", "green","blue","orange","brown"];
+var xValues = ["Calories Consumed", "Calories Burnt" ,"Current Weight", "Goal Weight" ];
+var yValues = [{{{json meals.[0].totalCalories}}}, {{{json workouts.[0].totalCaloriesBurnt}}}, {{{json weight}}}, {{{json goal_weight}}} ];
+var barColors = ["red", "green","blue","orange"];
 
 new Chart("myChart", {
   type: "bar",
@@ -33,7 +33,7 @@ new Chart("myChart", {
   }
 });
 </script>
-{{!-- Implement Chart.js here. --}}
+
 <div>
 
 </div>        
