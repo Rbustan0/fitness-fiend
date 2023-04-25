@@ -8,42 +8,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> FITNESS FIEND </title>
   <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
+
 
 </head>
 
 <body>
+  <nav id="navbar" class="navbar navbar-dark navbar-expand-lg">
+  <a id="navbar-title"class="navbar-brand" href="#">Fitness Fiend: Fitness Tracker</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      {{#if logged_in}}
+
+      {{else}}
+       <a class="nav-link" id="login-style" href="/login">login</a>
+      {{/if}}
+    </div>
+  </div>
+</nav>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="💪🏿 💪🏾 💪 💪🏻fitness💪🏿 💪🏾 💪 💪🏻"></span>
-        <a href="/">🏃🏾 🏄 🚴🏼 🧘🏾 🤸FITNESS FIEND : Fitness Tracker ⚽ 🏀 🥊 💥 🏋️</a>
-      </h1>
-        <nav>
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-          <a href="/profile">profile</a> |
-          <button class="no-button" id="logout">logout</button>
-          {{else}}
-          <a href="/login">login</a>
-          {{/if}}
-        </nav>
-    </header>
+  
 
     
     <main class="container container-fluid mt-5">
       {{#if logged_in}}
-      <aside>
-        <ul>
-            <li><a href="/meals">Meals</a></li>
-            <li><a href="/workouts">Workouts</a></li>
-            <li><a href="/user">User</a></li>
+        {{!-- side bar --}}
+  <div class="sidebar">
 
-        </ul>
-      </aside>
+    <ul class="menu">
+          <li>
+            <a href="/">
+                <i class="fa fa-home"></i>
+                HOME
+            </a>
+        </li>
+          <li>
+            <a href="/profile">
+                <i class="fa fa-home"></i>
+                PROFILE
+            </a>
+        </li>
+        <li>
+            <a href="/meals">
+                <i class="fa fa-home"></i>
+                MEAL
+            </a>
+        </li>
+        <li>
+            <a href="/workouts">
+                <i class="fa fa-dashboard"></i>
+                WORKOUT
+            </a>
+        </li>
+        <li>
+            <a href="/user">
+                <i class="fa fa-user"></i>
+                USER
+            </a>
+        </li>
+        <li>
+            <a id="logout">
+                <i class="fa fa-sign-out"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+     
+
       {{else}}
-      
-      <h1>Login to see the good stuff!</h1>
+      <div class="homepage">
+               <div id="greetingLogin">
+                  <h1>Login to see the good stuff!</h1>
+                  <p>Greetings, Fitness Enthusiast! Welcome to our dynamic and exciting Fitness Tracker App! Get ready to embark on a fitness journey like never before. </p>
+                </div>
+         <div class="famousQuotes">
+            <div>
+              <h2>Famous Quotes by the Unknown</h2>
+          </div>
+              
+          <div class="quotes">
+            <p class="quoteMargin">"Fitness is not about being better than someone else, it's about being better than you used to be." - Unknown</p>
+            <p class="quoteMargin">"The only bad workout is the one that didn't happen." - Unknown</p>
+            <p class="quoteMargin">"The pain you feel today will be the strength you feel tomorrow." - Unknown</p>
+            <p class="quoteMargin">"Fitness is not a destination, it's a journey." - Unknown</p>
+            <p class="quoteMargin">"Fitness is not a destination, it's a journey." - Unknown</p>
+            <p class="quoteMargin">"You are stronger than you think." - Unknown</p>   
+          </div>
+      </div>
+      </div>
+
 
       {{/if}}
 

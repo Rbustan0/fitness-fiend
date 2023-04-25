@@ -1,14 +1,17 @@
 {{!-- TODO: LINK TO CHART.JS --}}
-
-<div class="row">
-  <div class="col-auto">
-    <h1>Your Progress so far: </h1>
-  </div>
+<div class="chart">
+    <div class="row">
+      <div id="progess"class="col-auto">
+        <h1>Your Progress so far: </h1>
+      </div>
+    </div>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    
+   
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
-
-<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
 <script>
 var xValues = ["Calories Consumed", "Calories Burnt" ,"Current Weight", "Goal Weight" ];

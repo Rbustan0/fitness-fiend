@@ -1,5 +1,5 @@
  {{!-- ROYE TO LALO: Ask Anthony if he wants to make this look similar to user submission form. --}}
- <div id="renderWorkout">
+        <div class="mealDisplay" id="renderWorkout">
                 {{#each user.workouts as |workout|}}
                 <p> Workout Name: {{workout.workout_name}}</p>
                 <p> Duration: {{workout.duration}}</p>
@@ -7,21 +7,33 @@
                 <p> Workout Type: {{workout.workout_type}}</p>
                 <p> Calories Burnt: {{workout.calories_burnt}}</p>
                 {{/each}}
-               </div>
+        </div>
 
 
 
-              <section>
+   
 
-                <form action="form">
-                    <div>
-                        <h3>What's your workout Name?</h3>
-                        <input id= "workoutName" type="text"> 
-                      </div>
-              
-                      <div>
-                        <h3>What Category does your workout into?</h3>
-                        <select name="workoutType" id="workoutType">
+
+
+
+
+<form id = 'user-form'>
+        
+        <div>
+            <h2 class = 'title' >Workouts</h2>
+        </div>
+
+        <div class="userForm">
+                <div class="group">
+                    <input id="workoutName" class="form-input" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="mealName">What's your workout Name?</label>
+                </div>
+
+                <div class = 'group'>
+                     <h4>What Category does your workout into?</h4>
+                          <select name="workoutType" id="workoutType">
                           <option value="stretching">stretching</option>
                           <option value="cardio">cardio</option>
                           <option value="strengthTraining">strength training</option>
@@ -29,25 +41,49 @@
                         <option value="sport">sport</option>
                         <option value="calesthetics">calesthetics</option>
                         </select>
-                      </div>
+                </div>
 
-                      <div>
-                        <h3>Provide a Workout Description!</h3>
-                        <input id="workoutDescription"type="text">
-                      </div>
-  
-                      <div>
-                        <h3>How many calories did you burn today!?</h3>
-                        <input id="workoutCalories"type="text">
-                      </div>
+                <div class="group">
+                    <input id="workoutDescription" class="form-input" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="form-input">Provide a Workout Description!</label>
+                </div>
 
-                    <div>
-                        <h3>How long was your workout today?</h3>
-                        <input id="workoutDuration"type="text">
-                    </div>
-                      <button id="newWorkoutBtn">Add Workout</button>
-                </form>
-            </section>
+                <div class = 'group'>
+                    <input id="workoutCalories" class="form-input" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="form-input">How many calories did you burn today!?</label>
+                </div>
+
+                 <div class = 'group'>
+                    <input id="workoutDuration" class="form-input" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="form-input">How long was your workout today?</label>
+                </div>
+
+                <button class="userBtn"id="newWorkoutBtn">Add Workout</button>
+        </div>
+
+
+        
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
 
 
 

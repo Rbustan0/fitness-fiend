@@ -184,6 +184,7 @@ input:focus ~ .highlight {
   .title {
     font-size: 40px;
     margin-bottom: 50px;
+    border: 1px black solid;
     box-shadow: 2px 2px 2px 2px;
   }
 
@@ -263,4 +264,114 @@ input:focus ~ .highlight {
     border: 2px solid green;
   }
 
+  #navbar-title{
+    font-size: 30px;
+    font-weight: bolder;
+    margin-left: 30%;
+  }
   
+  #login-style{
+    margin-left: 350px;
+  }
+
+  .quotes{
+    display: flex;
+    flex-direction: column;
+    border: solid black 1px;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 2px 2px;
+    background-color: lightgray;
+  }
+
+.famousQuotes, .homepage, .chart{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+  .quoteMargin {
+    margin: 25px;
+  }
+
+#greetingLogin{
+  margin-top: 25px;
+}
+
+#navbar {
+border-bottom: 2px solid black;
+background-color: #2F5061;
+}
+
+
+
+/* sidebar */
+/* CSS for sidebar */
+.sidebar {
+  width: 150px;
+  height: 50%;
+  position: fixed;
+  left: 0;
+  top: 25%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.logo img {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.menu li a:hover {
+  background-color: #555;
+}
+
+.menu li.active a {
+  background-color: #777;
+}
+
+
+#progess{
+  margin-bottom: 100px;
+}
+
+.userForm, .mealDisplay{ 
+  border: black solid 1px;
+  border-radius: .5rem;
+  margin: 40px;
+  padding: 20px;
+  box-shadow: 2px 2px 2px 2px;
+}
+
+.userBtn{
+  background-color: lightgray;
+  color: black;
+  border: 1px black solid;
+  border-radius: .3rem;
+  cursor: pointer;
+}
+
+.userBtn:hover{
+  background-color: #2F5061;
+color: white;
+}
+

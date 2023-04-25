@@ -1,5 +1,5 @@
 {{!-- ROYE TO LALO: Ask Anthony if he wants to make this look similar to user submission form. --}}
-               <div id="renderInfo">
+               <div class="mealDisplay"id="renderInfo">
                 {{#each user.meals as |meal|}}
                 <p> Meal name: {{meal.meal_name}}</p>
                 <p> Calories: {{meal.calories}}</p>
@@ -10,37 +10,61 @@
 
 
 
-              <section>
-
-                <form action="form">
-                    <div>
-                        <h3>What's your meal Name?</h3>
-                        <input id= "mealName" type="text"> 
-                      </div>
               
-                      <div>
-                        <h3>What Category does your Meal into?</h3>
-                        <select name="mealType" id="mealType">
+
+
+
+
+
+
+<form id = 'user-form'>
+        
+        <div>
+            <h2 class = 'title'>Meals</h2>
+        </div>
+
+        <div class="userForm">
+                <div class="group">
+                    <input id="mealName" class="form-input" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="mealName">What's your meal Name?</label>
+                </div>
+
+                <div class = 'group'>
+                     <h4 for="form-input">What Category does your Meal into?</h4>
+                     <select name="mealType" id="mealType">
                           <option value="breakfast">breakfast</option>
                           <option value="lunch">lunch</option>
                           <option value="dinner">dinner</option>
                           <option value="snack">snack</option>
-                        </select>
-                      </div>
+                      </select>
+                </div>
 
-                      <div>
-                        <h3>Provide a Meal Description!</h3>
-                        <input id="mealDescription"type="text">
-                      </div>
-  
-                      <div>
-                        <h3>How many calories does your Meal consist of?</h3>
-                        <input id="mealCalories"type="text">
-                      </div>
+                <div class="group">
+                    <input id="mealDescription" class="form-input" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="form-input">Provide a Meal Description!</label>
+                </div>
 
-                      <button id="newMealBtn">Add Meal</button>
-                </form>
-            </section>
+                <div class = 'group'>
+                    <input id="mealCalories" class="form-input" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="form-input">How many calories does your Meal consist of?</label>
+                </div>
+
+                <button class="userBtn"id="newMealBtn">Add Meal</button>
+        </div>
+
+
+        
+    </form>
+
+
+
+
 
 
 
