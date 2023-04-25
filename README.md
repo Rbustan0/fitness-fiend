@@ -59,6 +59,9 @@ The following packages and dependencis are necessary to run the application:
     chart.js^4.0.0
 
 
+    SET GLOBAL sql_mode = '';
+
+
 
 ## Usage
 
