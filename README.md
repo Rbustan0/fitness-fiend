@@ -26,7 +26,7 @@ Ideas for future development:
 - Syncs with existing fitness tracking devices
 
 
-LINK TO DEPLOYED WEBAPP VIA HEROKU: 
+LINK TO DEPLOYED WEBAPP VIA HEROKU: https://fast-basin-24052.herokuapp.com/
 
 
 ## Table of Contents 
