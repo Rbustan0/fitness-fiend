@@ -93,14 +93,11 @@ At any time, the user can click the "profile" link and be taken to their user pr
 
 ## Credits
 
-Roye Bustan
-Anthony Ayala Arellano
-Eduardo Enquirez
-Patricia Alberto
-Bryan Swarthout 
-Hunter Adcock
-Shawn Tschoepe
+40R EYES consists of Roye Bustan, Anthony Ayala Arellano, Patricia Alberto, and Eduardo Enquirez.  
 
+We'd like to give special thanks to our instructor Bryan Swarthout for helping us fix broken code and reorder correct code so that our app could work.  Also, thank you to our TAs, Hunter Adcock and Shawn Tschoepe for helping us troubleshoot when our code would not respond correctly.  
+
+Bootstrap was used to style Fitness Fiend.  
 
 ## License
 
