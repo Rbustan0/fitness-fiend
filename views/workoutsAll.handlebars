@@ -1,11 +1,11 @@
  {{!-- ROYE TO LALO: Ask Anthony if he wants to make this look similar to user submission form. --}}
  <div id="renderWorkout">
                 {{#each user.workouts as |workout|}}
-                <p>{{workout.workout_name}}</p>
-                <p> {{workout.duration}}</p>
-                <p> {{workout.workout_description}}</p>
-                <p> {{workout.workout_type}}</p>
-                <p> {{workout.calories_burnt}}</p>
+                <p> Workout Name: {{workout.workout_name}}</p>
+                <p> Duration: {{workout.duration}}</p>
+                <p> Description: {{workout.workout_description}}</p>
+                <p> Workout Type: {{workout.workout_type}}</p>
+                <p> Calories Burnt: {{workout.calories_burnt}}</p>
                 {{/each}}
                </div>
 
