@@ -66,27 +66,27 @@ After seeding the database, run the below command in MySQL Workbench as well.  T
 
 When the user arrives at the homepage of the application they are met with a message to "Login to see the good stuff!"  
 
-    ![alt text](assets/images/screenshot.png)
+![alt text](./assets/images/FF1.png)
 
 When they click the login button they are taken to a page that displays an option to log into the app or sign up if they have not already become a user.  
 
-    ![alt text](assets/images/screenshot.png)
+![alt text](./assets/images/FF2.png)
 
 Once logged in, the user is brought to a profile page that displays a chart with their progress.  The chart tracks the user's calories consumed, calories burned, current weight, and goal weight.  
 
-    ![alt text](assets/images/screenshot.png)
+![alt text](./assets/images/FF3.png)
 
 When the user clicks on the "meals" link, they are taken to a meals page where they can add a meal and also see all meals they have added.  
 
-    ![alt text](assets/images/screenshot.png)
+![alt text](./assets/images/FF4.png)
 
 When the user clicks on the "workouts" link, they are taken to a workouts page where they can add workout information and see all meals they have added.  
 
-    ![alt text](assets/images/screenshot.png)
+![alt text](./assets/images/FF5.png)
 
 When the user clicks on the "user" link, they are taken to a user settings page where they can enter their stats such as current weight, goal weight, current height, age, and current bmi.  
 
-    ![alt text](assets/images/screenshot.png)
+![alt text](./assets/images/FF6.png)
 
 At any time, the user can click the "profile" link and be taken to their user profile page that shows their progress with the chart.  
 
